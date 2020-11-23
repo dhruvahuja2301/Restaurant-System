@@ -1,0 +1,112 @@
+/* Manager Menu */
+.input_top_space input{
+    margin-top: 0.5rem;
+}
+
+
+.hide {
+    display: none;
+
+}
+/* login */
+#bg {
+    margin-top: 5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+@media(min-width:991px){
+    #login,#sign-up{
+        margin: 1rem 0;
+    }   
+}
+#login, #sign-up {
+    background-color: #000000;
+    color: white;
+}
+#login-btn, #sign-btn {
+    background-color: transparent;
+}
+@media(min-width:768px) {
+    .px-10 {
+        padding: 0 4rem;
+    }
+}
+
+/* header */
+header.jumbotron {
+    background: url(Backgroundpic2.jpg) no-repeat;
+    background-size: cover;
+    /* height: 350px; */
+    background-position: center;
+    font-family: century;
+}
+
+/* navbar links */
+a.nav-link{
+    font-size: 1.25rem;
+}
+a{
+    color: white;
+    text-align: center;
+}
+
+/* footer / nav*/
+footer.text-white,nav {
+    background: #232526; 
+    background: -webkit-linear-gradient(to bottom, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* footer */
+footer a:hover{
+    color: #ffc107;
+}
+footer ul li{
+    list-style: none;
+}
+footer ul {
+    padding-left: 0.25rem;
+}
+footer ul li::before {
+    font-family: "Font Awesome 5 Free";
+    content: " \f101";
+    font-weight: 800;
+    margin-right: 1rem;
+}
+footer .fab {
+    font-size: 3rem;
+}
+
+footer{
+    padding-bottom: 1rem;
+}
+
+/* body */
+body {
+    background: #59C173;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom right, #5D26C1, #a17fe0, #59C173);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom right, #5D26C1 , #a17fe0 50%, #59C173 70%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  /* reserve table */
+.modal-content .modal-header {
+    color: floralwhite;
+    background: #512DA8; 
+}
+.modal-content .modal-header .close {
+      color: floralwhite; 
+}
+  
+.modal-content .modal-body {
+    background: #D1C4E9; 
+}
+/* reserve table */
+#reserve_table_input {
+    padding: 0.5rem 4rem;
+}
+/* scroll top */
+#scrolltop{
+    position: fixed; 
+    bottom: 10px; 
+    right: 10px;
+    z-index: 100;
+}
