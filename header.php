@@ -17,9 +17,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="orders.php">Orders List</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="login.php">LOGIN</a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </nav>

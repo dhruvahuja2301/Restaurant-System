@@ -87,22 +87,6 @@ body {
     background: linear-gradient(to bottom right, #5D26C1 , #a17fe0 50%, #59C173 70%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
-  /* reserve table */
-.modal-content .modal-header {
-    color: floralwhite;
-    background: #512DA8; 
-}
-.modal-content .modal-header .close {
-      color: floralwhite; 
-}
-  
-.modal-content .modal-body {
-    background: #D1C4E9; 
-}
-/* reserve table */
-#reserve_table_input {
-    padding: 0.5rem 4rem;
-}
 /* scroll top */
 #scrolltop{
     position: fixed; 
