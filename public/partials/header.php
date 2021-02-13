@@ -12,14 +12,8 @@
                     <a class="nav-link" href="manage_menu.php">Manage Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="aboutus.php">ABOUT US</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="orders.php">Orders List</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="login.php">LOGIN</a>
-                </li> -->
             </ul>
         </div>
     </nav>

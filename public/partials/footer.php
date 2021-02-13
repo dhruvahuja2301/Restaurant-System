@@ -42,4 +42,4 @@
         
     </footer>
     <a id="scrolltop" class="btn btn-dark"><span class="fas fa-chevron-up"></span></a>
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="public/js/scripts.js"></script>

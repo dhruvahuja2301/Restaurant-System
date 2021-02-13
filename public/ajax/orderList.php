@@ -118,11 +118,11 @@ $orders = mysqli_fetch_all($result,MYSQLI_ASSOC);
                                                         // alert($(str)[0].value);
                                                         $.ajax({
                                                             type: "POST",
-                                                            url: "edit_item.php",
+                                                            url: "public/ajax/edit_item.php",
                                                             data:'i='+i+" j:"+j+" newq:"+$(str)[0].value,
                                                             success: function(data){
                                                                 // $("#temp1").html(data);
-                                                                $("#orderList").load("orderList.php");
+                                                                $("#orderList").load("public/ajax/orderList.php");
                                                             }
                                                         });
                                                     }
@@ -143,11 +143,11 @@ $orders = mysqli_fetch_all($result,MYSQLI_ASSOC);
                                                         
                                                         $.ajax({
                                                             type: "POST",
-                                                            url: "delete_item.php",
+                                                            url: "public/ajax/delete_item.php",
                                                             data:'OrderNo='+val1+" "+val2,
                                                             success: function(data){
                                                                 // $("#temp").html(data);
-                                                                $("#orderList").load("orderList.php");
+                                                                $("#orderList").load("public/ajax/orderList.php");
                                                             }
                                                         });
                                                     }
@@ -174,11 +174,11 @@ $orders = mysqli_fetch_all($result,MYSQLI_ASSOC);
                                         
                                         $.ajax({
                                             type: "POST",
-                                            url: "delete_order.php",
+                                            url: "public/ajax/delete_order.php",
                                             data:'OrderNo='+val,
                                             success: function(data){
                                                 $("#temp").html(data);
-                                                $("#orderList").load("orderList.php");
+                                                $("#orderList").load("public/ajax/orderList.php");
                                             }
                                         });
                                     }
@@ -189,7 +189,7 @@ $orders = mysqli_fetch_all($result,MYSQLI_ASSOC);
                                     // alert("#Item"+OrderNo)
                                     $.ajax({
                                         type: "POST",
-                                        url: "get_items.php",
+                                        url: "public/ajax/get_items.php",
                                         data:'CuisineID='+val,
                                         success: function(data){
                                             $("#Items"+OrderNo).html(data);
@@ -226,10 +226,10 @@ $orders = mysqli_fetch_all($result,MYSQLI_ASSOC);
                                                                                                     
                                                     $.ajax({
                                                         type: "POST",
-                                                        url: "add_item_order.php",
+                                                        url: "public/ajax/add_item_order.php",
                                                         data:'val='+val+" valq:"+valq+" OrderNo:"+OrderNo,
                                                         success: function(data){
-                                                            $("#orderList").load("orderList.php");
+                                                            $("#orderList").load("public/ajax/orderList.php");
                                                         }
                                                     });
                                                 }

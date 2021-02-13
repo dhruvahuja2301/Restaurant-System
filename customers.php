@@ -30,15 +30,14 @@
 <html lang="en">
 
 <head>
-    <?php include_once('linking_file.php') ?>
-    <link rel="stylesheet" href="style.css">
+    <?php include_once('public/partials/linking_file.php') ?>
     <title>Diviana Dines: Customers</title>
 
 </head>
 
 <body>
 
-    <?php include_once('header.php') ?>
+    <?php include_once('public/partials/header.php') ?>
 
     <div class="container-lg">
         <div class="row">
@@ -126,7 +125,7 @@
             <?php } ?>
 
     </div>
-    <?php include_once("footer.php") ?>
+    <?php include_once("public/partials/footer.php") ?>
 
 </body>
     

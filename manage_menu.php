@@ -5,31 +5,40 @@
     }
     $sql = 'SELECT * FROM cuisine';
     $result = mysqli_query($conn,$sql);
-
+    $error = false;
     $cuisine = mysqli_fetch_all($result,MYSQLI_ASSOC);
-    // print_r();
+    // print_r($_POST);
     if(isset($_POST['submit'])){
         if($_POST['submit']=='Edit Cuisine'){
-            $sql = "UPDATE cuisine SET Cuisine_Name = '$_POST[name]' WHERE cuisine.CuisineID = $_POST[id]";
+            $sql = "UPDATE Cuisine SET Cuisine_Name = '$_POST[name]' WHERE Cuisine.CuisineID = $_POST[id]";
             $result = mysqli_query($conn,$sql);                     
         } else if(($_POST['submit']=='Delete Cuisine') && isset($_POST['yes'])){
-                    $sql = "DELETE FROM cuisine WHERE cuisine.CuisineID = $_POST[id]";
-                    $result = mysqli_query($conn,$sql);                             
+            $sql = "DELETE FROM Items WHERE Items.CuisineID = $_POST[id]";
+            $result = mysqli_query($conn,$sql); 
+            $sql = "DELETE FROM Cuisine WHERE Cuisine.CuisineID = $_POST[id]";
+            $result = mysqli_query($conn,$sql);                             
+            if($result!=1){
+                $error = "Cannot Delete the Cuisine";
+            }
         } else if($_POST['submit']=='Create Cuisine'){
-            $sql = "INSERT INTO cuisine (CuisineID, Cuisine_Name) VALUES (NULL, '$_POST[name]')";        
+            $sql = "INSERT INTO Cuisine (CuisineID, Cuisine_Name) VALUES (NULL, '$_POST[name]')";        
             $result = mysqli_query($conn,$sql);                     
         } else if($_POST['submit']=='Add Item'){
-            $sql = "INSERT INTO items (ItemID, Item_Name, Price_per_serving, CuisineID) VALUES (NULL, '$_POST[name]', $_POST[price], $_POST[CuisineID]);";
+            $sql = "INSERT INTO Items (ItemID, Item_Name, Price_per_serving, CuisineID) VALUES (NULL, '$_POST[name]', $_POST[price], $_POST[CuisineID]);";
             $result = mysqli_query($conn,$sql);                     
         } else if($_POST['submit']=='Edit Item'){
-            $sql = "UPDATE items SET Item_Name = '$_POST[name]', Price_per_serving = '$_POST[price]' WHERE items.ItemId = $_POST[id]";
+            $sql = "UPDATE Items SET Item_Name = '$_POST[name]', Price_per_serving = '$_POST[price]' WHERE Items.ItemId = $_POST[id]";
             $result = mysqli_query($conn,$sql);                     
         } else if(($_POST['submit']=='Delete Item') && isset($_POST['yes'])){
-            $sql = "DELETE FROM items WHERE items.ItemId = $_POST[id]";
-            $result = mysqli_query($conn,$sql);                             
+            
+            $sql = "DELETE FROM Items WHERE Items.ItemId = $_POST[id]";
+            $result = mysqli_query($conn,$sql);
+            if($result!==1){
+                $error = "Cannot Delete the Item";
+            }
         }
     }
-    $sql = 'SELECT * FROM cuisine';
+    $sql = 'SELECT * FROM Cuisine';
     $result = mysqli_query($conn,$sql);
 
     $cuisine = mysqli_fetch_all($result,MYSQLI_ASSOC);
@@ -38,17 +47,22 @@
 <html lang="en">
 
 <head>
-    <?php include_once('linking_file.php') ?>
+    <?php include_once('public/partials/linking_file.php') ?>
     <title>Diviana Dines: Manage Menu</title>
 
 </head>
 
 <body>
 
-    <?php include_once('header.php') ?>
-
+    <?php include_once('public/partials/header.php') ?>
+    
     <div class="container">
         <div class="row">
+        <div class="col-12">
+            <?php if($error){
+                print($error);
+            }?>
+        </div>
             <div class="col-12 col-md-4 col-lg-6">
                 <h3>Cuisines</h3>
             </div>
@@ -124,7 +138,7 @@
 
                                 <?php
                                     $id = $cuisine[$i]['CuisineID'];
-                                    $sql = "SELECT * FROM items WHERE items.CuisineID=$id";
+                                    $sql = "SELECT * FROM Items WHERE Items.CuisineID=$id";
                                     $result = mysqli_query($conn,$sql);
                                     $items = mysqli_fetch_all($result,MYSQLI_ASSOC);
                                     // print_r($items);
@@ -198,7 +212,7 @@
         });
     });
     </script>
-    <?php include_once("footer.php") ?>
+    <?php include_once("public/partials/footer.php") ?>
     
 
 </body>

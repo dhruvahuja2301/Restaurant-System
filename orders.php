@@ -42,13 +42,13 @@
     
     for($i=0;$i<count($cuisine);$i++){
         $j = $cuisine[$i]['CuisineID'];
-        $sql = "SELECT ItemID, Item_Name, Times_ordered, Price_per_serving FROM items where CuisineID = '$j' ";
+        $sql = "SELECT ItemID, Item_Name, Times_ordered, Price_per_serving FROM Items where CuisineID = '$j' ";
         $result = mysqli_query($conn,$sql);
         $items1 = mysqli_fetch_all($result,MYSQLI_ASSOC);    
         // print_r($items1);
         $itemsCuisine[$cuisine[$i]['CuisineID']] = $items1;
     }
-    $sql = "SELECT * FROM items";
+    $sql = "SELECT * FROM Items";
     $result = mysqli_query($conn,$sql);
     $items1 = mysqli_fetch_all($result,MYSQLI_ASSOC);  
     for($i=0;$i<count($items1);$i++){
@@ -67,14 +67,14 @@
 <html lang="en">
 
 <head>
-    <?php include_once('linking_file.php') ?>
+    <?php include_once('public/partials/linking_file.php') ?>
     <title>Diviana Dines: Orders</title>
 
 </head>
 
 <body>
 
-    <?php include_once('header.php') ?>
+    <?php include_once('public/partials/header.php') ?>
 
     <div class="container">
         <h3>Orders</h3>
@@ -98,7 +98,7 @@
                                 function getitems(val) {
                                     $.ajax({
                                         type: "POST",
-                                        url: "get_items.php",
+                                        url: "public/ajax/get_items.php",
                                         data:'CuisineID='+val,
                                         success: function(data){
                                             $("#Item0").html(data);
@@ -139,7 +139,7 @@
                                     
                                     $.ajax({
                                         type: "POST",
-                                        url: "add_items.php",
+                                        url: "public/ajax/add_items.php",
                                         data:'arrn='+arrn+" arrq:"+arrq,
                                         success: function(data){
                                             $("#item").html(data);
@@ -156,7 +156,7 @@
                                     if(arrn.length !== 0){
                                     $.ajax({
                                         type: "POST",
-                                        url: "add_items.php",
+                                        url: "public/ajax/add_items.php",
                                         data:'arrn='+arrn+" arrq:"+arrq,
                                         success: function(data){
                                             $("#item").html(data);
@@ -173,11 +173,11 @@
                                     if(arrn.length !== 0){
                                         $.ajax({
                                             type: "POST",
-                                            url: "placeorder.php",
+                                            url: "public/ajax/placeorder.php",
                                             data:'arrn='+arrn+" arrq:"+arrq+" cust:"+cust,
                                             success: function(data){
                                                 $("#temp").html(data);
-                                                $("#orderList").load("orderList.php");
+                                                $("#orderList").load("public/ajax/orderList.php");
                                                 $("#placeOrderForm")[0].reset();
                                                 $("#item")[0].innerHTML="";
                                             }
@@ -193,7 +193,7 @@
         <div id="temp">
         </div>
         <div class="row" id="orderList">
-            <?php include_once("orderList.php") ?>
+            <?php include_once("public/ajax/orderList.php") ?>
         </div>
 
     </div>
@@ -213,7 +213,7 @@
         });
     });
     </script>
-    <?php include_once("footer.php") ?>
+    <?php include_once("public/partials/footer.php") ?>
     
 
 </body>

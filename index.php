@@ -21,12 +21,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include("linking_file.php"); ?>
+    <?php include("public/partials/linking_file.php"); ?>
     <title>DIVIANA DINES</title>
 </head>
 <body>
     
-    <?php include("header.php"); ?>
+    <?php include("public/partials/header.php"); ?>
 
     <div class="container-lg">
         <h3>Our Speciality</h3>
@@ -41,7 +41,7 @@
                 <div class="card">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="veg-maharaja.jpg" class="d-block img-fluid" alt="...">
+                            <img src="images/veg-maharaja.jpg" class="d-block img-fluid" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -56,7 +56,7 @@
                 <div class="card">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="cheese pizza.jpg" class="d-block img-fluid" alt="...">
+                            <img src="images/cheese pizza.jpg" class="d-block img-fluid" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -71,7 +71,7 @@
                 <div class="card">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="lasagne.jpg" class="d-block img-fluid" alt="...">
+                            <img src="images/lasagne.jpg" class="d-block img-fluid" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -150,7 +150,7 @@
       </div>    
     </div>
 
-    <?php include("footer.php"); ?>
+    <?php include("public/partials/footer.php"); ?>
 
 </body>
 </html>
